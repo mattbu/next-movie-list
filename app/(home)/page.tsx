@@ -8,7 +8,6 @@ export const metadata = {
 export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
 async function getMovies() {
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
   const response = await fetch(API_URL, {
     cache: "force-cache", // Next 15 부터 기본 캐싱이 안됌
   });
