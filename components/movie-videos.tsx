@@ -2,9 +2,6 @@ import { API_URL } from "../app/(home)/page";
 import styles from "../styles/movie-videos.module.css";
 
 async function getVideos(movieId: string) {
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
-  // console.log(`Fetching videos: ${Date.now()}`);
-
   const response = await fetch(`${API_URL}/${movieId}/videos`, {
     cache: "force-cache",
   });

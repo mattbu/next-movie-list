@@ -2,30 +2,22 @@ import { Suspense } from "react";
 import { API_URL } from "../../../(home)/page";
 import MovieInfo from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
+import { getMovie } from "../../../../components/movie-info";
 
-async function getMovie(movieId: string) {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
-  console.log(`Fetching movies: ${Date.now()}`);
-  const response = await fetch(`${API_URL}/${movieId}`);
-  const json = await response.json();
-  return json;
-}
-
-async function getVideos(movieId: string) {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
-  console.log(`Fetching videos: ${Date.now()}`);
-  const response = await fetch(`${API_URL}/${movieId}/videos`);
-  const json = await response.json();
-  return json;
-}
-
-export default async function MovieDetail({
-  params,
-}: {
+interface IParams {
   params: { id: string };
-}) {
+}
+
+export async function generateMetadata({ params }: IParams) {
   const { id } = await params;
-  // const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
+  const movie = await getMovie(id);
+  return {
+    title: movie.title,
+  };
+}
+
+export default async function MovieDetailPage({ params }: IParams) {
+  const { id } = await params;
   return (
     <div>
       <Suspense fallback={<h1>Loading movie Info</h1>}>
