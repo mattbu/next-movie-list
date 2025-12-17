@@ -22,20 +22,30 @@ export default async function MovieInfo({ id }: { id: string }) {
       <div className={styles.info}>
         <h1 className={styles.title}>{movie.title}</h1>
         <div>
-          <h3>⭐️ {movie.vote_average.toFixed(1)}</h3>
-          <span>🗓️ {movie.release_date}</span>
+          <span>⭐️ {movie.vote_average.toFixed(1)}</span> |
+          <span> 🗓️ {movie.release_date}</span> |
+          <span> ⏱️ {movie.runtime}min</span>
         </div>
         <p>{movie.overview}</p>
-        <a
+        {/* <a
           href={movie.homepage}
           target={"_blank"}
           className={styles["home-link"]}
         >
           Homepage &rarr;
-        </a>
-        <Link href={`/movies/${id}/credits`} className={styles.button}>
-          Show Credits
-        </Link>
+        </a> */}
+        <div className={styles["button-container"]}>
+          <Link
+            href={movie.homepage}
+            target={"_blank"}
+            className={styles.button}
+          >
+            Homepage &rarr;
+          </Link>
+          <Link href={`/movies/${id}/credits`} className={styles.button}>
+            Show Credits
+          </Link>
+        </div>
       </div>
     </div>
   );

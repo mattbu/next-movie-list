@@ -2,8 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 50px;
-  width: 80%;
-  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
 .poster {
@@ -29,7 +28,13 @@
   width: fit-content;
 }
 
+.button-container {
+  display: flex;
+  gap: 16px;
+}
+
 .button {
+  width: 50%;
   font-size: 14px;
   text-align: center;
   background: #fff;
