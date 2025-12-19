@@ -17,6 +17,10 @@
   font-weight: 600;
 }
 
+.overview {
+  font-weight: 200;
+}
+
 .info {
   display: flex;
   flex-direction: column;

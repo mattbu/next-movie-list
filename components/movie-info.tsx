@@ -26,7 +26,7 @@ export default async function MovieInfo({ id }: { id: string }) {
           <span> 🗓️ {movie.release_date}</span> |
           <span> ⏱️ {movie.runtime}min</span>
         </div>
-        <p>{movie.overview}</p>
+        <p className={styles.overview}>{movie.overview}</p>
         {/* <a
           href={movie.homepage}
           target={"_blank"}
